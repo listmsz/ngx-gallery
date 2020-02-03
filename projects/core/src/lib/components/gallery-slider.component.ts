@@ -114,6 +114,7 @@ export class GallerySliderComponent implements OnInit, OnChanges, OnDestroy {
 
           switch (this.config.slidingDirection) {
             case SlidingDirection.Horizontal:
+              console.log({ e })
               this.updateSlider({value: e.deltaX, active: true});
               if (e.isFinal) {
                 this.updateSlider({value: 0, active: false});
@@ -192,7 +193,14 @@ export class GallerySliderComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   private horizontalPan(e) {
+    console.log({
+      e,
+      items: this.state.items,
+      el: this._el,
+      offsetWidth: this._el.nativeElement.offsetWidth
+    })
     if (!(e.direction & Hammer.DIRECTION_HORIZONTAL && e.offsetDirection & Hammer.DIRECTION_HORIZONTAL)) {
+      debugger;
       return;
     }
     if (e.velocityX > 0.3) {
