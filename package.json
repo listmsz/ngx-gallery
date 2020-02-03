@@ -34,7 +34,8 @@
     "link-lightbox": "npm link dist/lightbox && npm link @ngx-gallery/lightbox",
     "link-gallerize": "npm link dist/gallerize && npm link @ngx-gallery/gallerize",
     "publish-all": "node .config/publish.js",
-    "version": "node .config/version.js"
+    "version": "node .config/version.js",
+    "postinstall": "cd node_modules/@ngx-gallery && npm install && npm run init-build && npm run build-all"
   },
   "private": false,
   "dependencies": {
