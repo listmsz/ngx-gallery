@@ -1,5 +1,5 @@
 {
-  "name": "listmsz-ngx-gallery",
+  "name": "ngx-gallery",
   "version": "4.0.3",
   "description": "Angular gallery directive that hooks the lightbox with the images automatically.",
   "homepage": "http://github.com/listmsz/ngx-gallery",
