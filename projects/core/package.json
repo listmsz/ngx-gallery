@@ -2,17 +2,17 @@
   "name": "@ngx-gallery/core",
   "version": "VERSION",
   "description": "Angular gallery directive that hooks the lightbox with the images automatically.",
-  "homepage": "http://github.com/murhafsousli/ngx-gallery",
+  "homepage": "http://github.com/listmsz/ngx-gallery",
   "author": {
     "name": "Murhaf Sousli",
     "url": "http://github.com/murhafsousli"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/murhafsousli/ngx-gallery.git"
+    "url": "git://github.com/listmsz/ngx-gallery.git"
   },
   "bugs": {
-    "url": "http://github.com/murhafsousli/ngx-gallery/issues"
+    "url": "http://github.com/listmsz/ngx-gallery/issues"
   },
   "license": "MIT",
   "keywords": [
