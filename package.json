@@ -35,7 +35,6 @@
     "link-gallerize": "npm link dist/gallerize && npm link @ngx-gallery/gallerize",
     "publish-all": "node .config/publish.js",
     "version": "node .config/version.js",
-    "postinstall": "npm install && npm run init-build"
   },
   "private": false,
   "dependencies": {
