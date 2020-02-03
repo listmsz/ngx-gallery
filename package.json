@@ -1,18 +1,18 @@
 {
-  "name": "ngx-gallery",
+  "name": "listmsz-ngx-gallery",
   "version": "4.0.3",
   "description": "Angular gallery directive that hooks the lightbox with the images automatically.",
-  "homepage": "http://github.com/murhafsousli/ngx-gallery",
+  "homepage": "http://github.com/listmsz/ngx-gallery",
   "author": {
     "name": "Murhaf Sousli",
-    "url": "http://github.com/murhafsousli"
+    "url": "http://github.com/listmsz"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/murhafsousli/ngx-gallery.git"
+    "url": "git://github.com/listmsz/ngx-gallery.git"
   },
   "bugs": {
-    "url": "http://github.com/murhafsousli/ngx-gallery/issues"
+    "url": "http://github.com/listmsz/ngx-gallery/issues"
   },
   "license": "MIT",
   "scripts": {
@@ -36,7 +36,7 @@
     "publish-all": "node .config/publish.js",
     "version": "node .config/version.js"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/animations": "^7.2.0",
     "@angular/cdk": "^7.2.1",
