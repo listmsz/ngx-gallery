@@ -21,7 +21,6 @@ import { SlidingDirection } from '../models/constants';
 import { SliderState, WorkerState } from '../models/slider.model';
 
 declare const Hammer: any;
-
 @Component({
   selector: 'gallery-slider',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -84,7 +83,6 @@ export class GallerySliderComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   constructor(private _el: ElementRef, private _zone: NgZone, @Inject(PLATFORM_ID) private platform: Object) {
-
     // Activate sliding worker
     this.sliderState$ = this._slidingWorker$.pipe(map((state: WorkerState) => ({
       style: this.getSliderStyles(state),
@@ -100,6 +98,9 @@ export class GallerySliderComponent implements OnInit, OnChanges, OnDestroy {
   ngOnInit() {
     if (this.config.gestures && typeof Hammer !== 'undefined') {
 
+      console.log('*********CONFIG***************')
+      console.log({config: this.config})
+
       const direction = this.config.slidingDirection === SlidingDirection.Horizontal
         ? Hammer.DIRECTION_HORIZONTAL
         : Hammer.DIRECTION_VERTICAL;
@@ -114,7 +115,7 @@ export class GallerySliderComponent implements OnInit, OnChanges, OnDestroy {
 
           switch (this.config.slidingDirection) {
             case SlidingDirection.Horizontal:
-              console.log({ e })
+              console.log('zone outside hammer on pan',{ e })
               this.updateSlider({value: e.deltaX, active: true});
               if (e.isFinal) {
                 this.updateSlider({value: 0, active: false});
@@ -197,7 +198,10 @@ export class GallerySliderComponent implements OnInit, OnChanges, OnDestroy {
       e,
       items: this.state.items,
       el: this._el,
-      offsetWidth: this._el.nativeElement.offsetWidth
+      direction: e.direction,
+      offsetDirection: e.offsetDirection,
+      velocityX: e.velocityX,
+      velocityY: e.velocityY,
     })
     if (!(e.direction & Hammer.DIRECTION_HORIZONTAL && e.offsetDirection & Hammer.DIRECTION_HORIZONTAL)) {
       debugger;
