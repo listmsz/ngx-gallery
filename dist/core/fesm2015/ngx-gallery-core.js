@@ -1671,7 +1671,6 @@ class GallerySliderComponent {
             // Activate gestures
             this._hammer = new Hammer(this._el.nativeElement);
             this._hammer.get('pan').set({ direction });
-            console.log('hammer', { hammer: this._hammer });
             this._zone.runOutsideAngular(() => {
                 // Move the slider
                 this._hammer.on('pan', (e) => {
@@ -1771,9 +1770,15 @@ class GallerySliderComponent {
             e,
             items: this.state.items,
             el: this._el,
-            offsetWidth: this._el.nativeElement.offsetWidth,
-            classList: this._el.nativeElement.classList
+            direction: e.direction,
+            offsetDirection: e.offsetDirection,
+            velocityX: e.velocityX,
+            velocityY: e.velocityY,
         });
+        if (!(e.direction & Hammer.DIRECTION_HORIZONTAL && e.offsetDirection & Hammer.DIRECTION_HORIZONTAL)) {
+            debugger;
+            return;
+        }
         if (e.velocityX > 0.3) {
             this.prev();
         }
