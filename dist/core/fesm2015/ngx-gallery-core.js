@@ -1662,6 +1662,8 @@ class GallerySliderComponent {
      */
     ngOnInit() {
         if (this.config.gestures && typeof Hammer !== 'undefined') {
+            console.log('*********CONFIG***************');
+            console.log({ config: this.config });
             /** @type {?} */
             const direction = this.config.slidingDirection === SlidingDirection.Horizontal
                 ? Hammer.DIRECTION_HORIZONTAL
@@ -1669,12 +1671,13 @@ class GallerySliderComponent {
             // Activate gestures
             this._hammer = new Hammer(this._el.nativeElement);
             this._hammer.get('pan').set({ direction });
+            console.log('hammer', { hammer: this._hammer });
             this._zone.runOutsideAngular(() => {
                 // Move the slider
                 this._hammer.on('pan', (e) => {
                     switch (this.config.slidingDirection) {
                         case SlidingDirection.Horizontal:
-                            console.log({ e });
+                            console.log('zone outside hammer on pan', { e });
                             this.updateSlider({ value: e.deltaX, active: true });
                             if (e.isFinal) {
                                 this.updateSlider({ value: 0, active: false });
@@ -1768,12 +1771,9 @@ class GallerySliderComponent {
             e,
             items: this.state.items,
             el: this._el,
-            offsetWidth: this._el.nativeElement.offsetWidth
+            offsetWidth: this._el.nativeElement.offsetWidth,
+            classList: this._el.nativeElement.classList
         });
-        if (!(e.direction & Hammer.DIRECTION_HORIZONTAL && e.offsetDirection & Hammer.DIRECTION_HORIZONTAL)) {
-            debugger;
-            return;
-        }
         if (e.velocityX > 0.3) {
             this.prev();
         }
