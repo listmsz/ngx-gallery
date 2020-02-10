@@ -2154,7 +2154,7 @@
                     velocityY: e.velocityY,
                 });
                 if (!(e.direction & Hammer.DIRECTION_HORIZONTAL && e.offsetDirection & Hammer.DIRECTION_HORIZONTAL)) {
-                    debugger;
+                    console.log('WRONG DIRECTION', e.direction, e.offsetDirection);
                     return;
                 }
                 if (e.velocityX > 0.3) {
